@@ -1,0 +1,53 @@
+<style>
+    html, body {
+        height: 100%;
+        margin: 0;
+        overflow: hidden; /* Disable scrolling */
+    }
+</style>
+
+<div class="max-w-md mx-auto text-center">
+    <h1 class="text-5xl font-extrabold text-gray-800 my-4">{{ section.settings.title }}</h1>
+    <p class="text-base md:text-xl text-gray-600 leading-relaxed my-4">{{ section.settings.subtext_title }}</p>
+    <div class="my-6">
+        {% assign shop_url = section.settings.button_url | default: shop.secure_url %}
+        <a href="{{ shop_url }}"
+            class="px-6 py-3 inline-block text-lg font-semibold text-white bg-blue-600 rounded-lg shadow-md hover:bg-blue-700 hover:shadow-lg focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 focus:outline-none transition duration-300 ease-in-out"
+            aria-label="{{ section.settings.button_label }}">
+            {{ section.settings.button_label }}
+        </a>
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "Template 404",
+    "tag": "section",
+    "class": "flex items-center justify-center py-12 h-screen bg-gray-100",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "default": "404",
+            "label": "404 Heading Title"
+        },
+        {
+            "type": "text",
+            "id": "subtext_title",
+            "default": "The page that you're looking for is not found",
+            "label": "404 Subtext Title"
+        },
+        {
+            "type": "text",
+            "id": "button_label",
+            "default": "Back to homepage",
+            "label": "Button Label"
+        },
+        {
+            "type": "url",
+            "id": "button_url",
+            "label": "Button URL"
+        }
+    ]
+}
+{% endschema %}
