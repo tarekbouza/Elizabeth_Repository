@@ -1,74 +1,11 @@
-<style>
-    .stars-container {
-        position: absolute;
-        inset: 0;
-        overflow: hidden;
-    }
-
-    /* Static stars using absolute positioning */
-    .star {
-        position: absolute;
-        width: 2px;
-        height: 2px;
-        background-color: white;
-        border-radius: 50%;
-        opacity: 0.8;
-    }
-</style>
-
-<div class="relative h-screen w-screen bg-gradient-to-b from-black via-blue-900 to-black overflow-hidden">
-    <!-- Stars Background -->
-    <div class="stars-container">
-    <!-- 40 Randomized Stars -->
-    <div class="star" style="top: 5%; left: 10%;"></div>
-    <div class="star" style="top: 12%; left: 25%;"></div>
-    <div class="star" style="top: 18%; left: 38%;"></div>
-    <div class="star" style="top: 22%; left: 42%;"></div>
-    <div class="star" style="top: 27%; left: 60%;"></div>
-    <div class="star" style="top: 33%; left: 12%;"></div>
-    <div class="star" style="top: 40%; left: 48%;"></div>
-    <div class="star" style="top: 44%; left: 72%;"></div>
-    <div class="star" style="top: 50%; left: 16%;"></div>
-    <div class="star" style="top: 55%; left: 58%;"></div>
-    <div class="star" style="top: 61%; left: 83%;"></div>
-    <div class="star" style="top: 68%; left: 5%;"></div>
-    <div class="star" style="top: 70%; left: 55%;"></div>
-    <div class="star" style="top: 73%; left: 15%;"></div>
-    <div class="star" style="top: 76%; left: 63%;"></div>
-    <div class="star" style="top: 79%; left: 27%;"></div>
-    <div class="star" style="top: 82%; left: 10%;"></div>
-    <div class="star" style="top: 85%; left: 68%;"></div>
-    <div class="star" style="top: 87%; left: 38%;"></div>
-    <div class="star" style="top: 90%; left: 52%;"></div>
-    <div class="star" style="top: 92%; left: 77%;"></div>
-    <div class="star" style="top: 94%; left: 65%;"></div>
-    <div class="star" style="top: 96%; left: 30%;"></div>
-    <div class="star" style="top: 4%; left: 85%;"></div>
-    <div class="star" style="top: 8%; left: 55%;"></div>
-    <div class="star" style="top: 11%; left: 77%;"></div>
-    <div class="star" style="top: 14%; left: 50%;"></div>
-    <div class="star" style="top: 17%; left: 20%;"></div>
-    <div class="star" style="top: 20%; left: 68%;"></div>
-    <div class="star" style="top: 25%; left: 90%;"></div>
-    <div class="star" style="top: 28%; left: 45%;"></div>
-    <div class="star" style="top: 32%; left: 30%;"></div>
-    <div class="star" style="top: 35%; left: 80%;"></div>
-    <div class="star" style="top: 38%; left: 65%;"></div>
-    <div class="star" style="top: 41%; left: 23%;"></div>
-    <div class="star" style="top: 46%; left: 56%;"></div>
-    <div class="star" style="top: 49%; left: 12%;"></div>
-    <div class="star" style="top: 51%; left: 83%;"></div>
-    <div class="star" style="top: 53%; left: 14%;"></div>
-    <div class="star" style="top: 57%; left: 37%;"></div>
-</div>
-
-
-    <!-- Content -->
-    <div class="flex flex-col items-center justify-center h-full relative z-10 text-center">
-        <h1 class="text-6xl font-extrabold text-white mb-4">{{ section.settings.title }}</h1>
-        <p class="text-lg md:text-xl text-gray-300 mb-6">{{ section.settings.subtext_title }}</p>
-        <a href="{{ section.settings.button_url | default: shop.secure_url }}"
-           class="px-6 py-3 text-lg font-semibold text-white bg-blue-600 rounded-lg shadow-md hover:bg-blue-700 hover:shadow-lg focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 focus:outline-none transition duration-300 ease-in-out">
+<div class="max-w-md mx-auto text-center">
+    <h1 class="text-5xl font-extrabold text-gray-800 my-4">{{ section.settings.title }}</h1>
+    <p class="text-base md:text-xl text-gray-600 leading-relaxed my-4">{{ section.settings.subtext_title }}</p>
+    <div class="my-6">
+        {% assign shop_url = section.settings.button_url | default: shop.secure_url %}
+        <a href="{{ shop_url }}"
+            class="px-6 py-3 inline-block text-lg font-semibold text-white bg-blue-600 rounded-lg shadow-md hover:bg-blue-700 hover:shadow-lg focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 focus:outline-none transition duration-300 ease-in-out"
+            aria-label="{{ section.settings.button_label }}">
             {{ section.settings.button_label }}
         </a>
     </div>
@@ -78,7 +15,7 @@
 {
     "name": "Template 404",
     "tag": "section",
-    "class": "",
+    "class": "flex items-center justify-center py-12 h-screen bg-gray-100",
     "settings": [
         {
             "type": "text",
